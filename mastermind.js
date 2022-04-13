@@ -1,8 +1,27 @@
 const blessed = require('blessed');
 const screen = blessed.screen();
 const colors = require('colors/safe');
-    
-        //Дизайн
+
+    //Дизайн
+blessed.form({
+    parent: screen,
+    top: 'center',
+    left: 100,
+    align: 'center',
+    width: 33,
+    height: 14, 
+    border:{
+        type:'line'
+        },
+        style:{
+            border:{
+            fg:'green'
+            }
+        },
+    bg: 'black',
+    content: 'Як грати?\n Для того щоб почати грати Вам необхідно ввести назву кольору.\n Наприклад:\n ' + colors.blue('синий ') + colors.red('червоний ')+ colors.yellow('жовтий ') + colors.green('зелений') +'\n або\n' + colors.blue('blue ') + colors.red('red ')  + colors.yellow('yellow ') + colors.green('green')
+});
+
 var form = blessed.form({
     parent: screen,
     keys: true,
@@ -20,12 +39,12 @@ var form = blessed.form({
     bg: 'black',
     autoNext: true,
     content: colors.white('Крамаренко Д.А. 1КН-20МС') + '\n' +
-             colors.green('1 - Зелений') + '\n' + 
-             colors.red('2 - Червоний') + '\n' + 
-             colors.blue('3 - Синій') + '\n' + 
-             colors.yellow('4 - Жовтий') + '\n' + 
-             colors.cyan('5 - Блакитний') + '\n' + 
-             colors.magenta('6 - Пурпурний')
+             colors.green('Green - Зелений') + '\n' + 
+             colors.red('Red - Червоний') + '\n' + 
+             colors.blue('Blue - Синій') + '\n' + 
+             colors.yellow('Yellow - Жовтий') + '\n' + 
+             colors.cyan('Cyan - Блакитний') + '\n' + 
+             colors.magenta('Magenta - Пурпурний')
 });
 
 var greaterThanEdit = blessed.Textbox({
@@ -159,7 +178,7 @@ function CreateWinGame (){
        height: '30%',
        valign:'middle',
        align: 'center',
-      content: 'Неправильно ввели число.\n Не більше, ні менше та цифри не мають повторюватися.\n Введите ще раз',
+      content: 'Неправильно ввели.\n Колорі не мають повторюватися.\n Введите ще раз',
        border: {
          type: 'line'
        },
@@ -180,6 +199,52 @@ function CreateWinGame (){
             return true;
         }     
     }
+}
+
+function StrToNumber(str) {
+	var GetStr = str.split(" ");
+	for(let i = 0; i < 4; i++){
+		switch(GetStr[i]){
+			case 'Green':
+			case 'green':
+            case 'Зелений':
+            case 'зелений':
+				GetStr[i] = 1;
+				break;
+			case 'Red':
+			case 'red':
+            case 'Червоний':
+            case 'червоний':
+				GetStr[i] = 2;
+				break;
+			case 'Blue':
+			case 'blue':
+            case 'Синій':
+            case 'синій':
+				GetStr[i] = 3;
+				break;
+			case 'Yellow':
+			case 'yellow':
+             case 'Жовтий':
+            case 'жовтий':
+				GetStr[i] = 4;
+				break;
+			case 'Cyan':
+			case 'cyan':
+            case 'Блакитний':
+            case 'блакитний':
+				GetStr[i] = 5;
+				break;
+			case 'Magneta':
+			case 'magneta':
+            case 'Пурпурний':
+            case 'пурпурний':
+				GetStr[i] = 6;
+				break;
+		}
+	}
+
+	return Number(GetStr.join(''))
 }
 
 var Bull = 0;
@@ -247,11 +312,12 @@ form.on('submit', function() {
     Bull = 0;
     Cows = 0;
           
-    let getText = Number(greaterThanEdit.getValue());
+    let getText = Number(StrToNumber(greaterThanEdit.getValue()));
     let array = [...'' + getText].map(Number);
 
-    if(isRepeat(getText) && getText > 1111 && getText < 6666){         
+    if(isRepeat(getText)){         
         
+
         for(let i = 0; i < 4; i++){
             if(array[i] < 1 || array[i] > 6){
                 greaterThanEdit.setValue('');
