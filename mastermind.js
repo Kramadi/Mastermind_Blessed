@@ -108,13 +108,12 @@ var cancel = blessed.button({
 });
 
 var table = blessed.table({
-    top: 1,
-    left: 'center',
-    data: null,
+    parent: screen,
+    top: 'center',
+    left: 38,
     border: 'line',
     align: 'center',
     tags: true,
-    width: 'shrink',
     style: {
       header: {
         fg: 'blue',
