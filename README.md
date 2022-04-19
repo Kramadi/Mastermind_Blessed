@@ -4,4 +4,4 @@
 3. run the command ```node mastermind.js``` in the terminal
 
 
-![image](https://user-images.githubusercontent.com/46372074/163235996-93592226-61e4-46bd-a01e-e5802d9ae776.png)
+![image](https://user-images.githubusercontent.com/46372074/164074492-72d9f9d4-0707-4f59-832d-2fa0a9f2d063.png)
