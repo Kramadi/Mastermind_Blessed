@@ -35,7 +35,7 @@ var form = blessed.form({
         },
     top: 'center',
     width: 37,
-    height: 14, 
+    height: 17, 
     bg: 'black',
     autoNext: true,
     content: colors.white('Крамаренко Д.А. 1КН-20МС') + '\n' +
@@ -59,52 +59,40 @@ var greaterThanEdit = blessed.Textbox({
     content: 'test'
 });
 
-var ButtonSubmit = blessed.button({
+var greaterThanEdit2 = blessed.Textbox({
     parent: form,
-    mouse: true,
+    top: 10,
+    height: 1,
+    left: 2,
+    right: 2,
+    bg: 'white',
     keys: true,
-    shrink: true,
-    padding: {
-        left: 1,
-        right: 1
-    },
-    left: 10,
-    bottom: 1,
-    name: 'submit',
-    content: 'подати',
-    style: {
-        bg: 'white',
-        focus: {
-            bg: 'red'
-        },
-        hover: {
-            bg: 'red'
-        }
-    }
+    inputOnFocus: true,
+    content: 'test'
 });
 
-var cancel = blessed.button({
+var greaterThanEdit3 = blessed.Textbox({
     parent: form,
-    mouse: true,
+    top: 12,
+    height: 1,
+    left: 2,
+    right: 2,
+    bg: 'white',
     keys: true,
-    shrink: true,
-    padding: {
-        left: 1,
-        right: 1
-    },
-    left: 20,
-    bottom: 1,
-    name: 'cancel',
-    content: 'скасувати',
-    style: {
-        bg: 'white',
-        focus: {
-            bg: 'red'
-        },
-        hover: {
-            bg: 'red'
-        }
-    }
+    inputOnFocus: true,
+    content: 'test'
+});
+
+var greaterThanEdit4 = blessed.Textbox({
+    parent: form,
+    top: 14,
+    height: 1,
+    left: 2,
+    right: 2,
+    bg: 'white',
+    keys: true,
+    inputOnFocus: true,
+    content: 'test'
 });
 
 var table = blessed.table({
@@ -234,8 +222,8 @@ function StrToNumber(str) {
             case 'блакитний':
 				GetStr[i] = 5;
 				break;
-			case 'Magneta':
-			case 'magneta':
+			case 'Magenta':
+			case 'magenta':
             case 'Пурпурний':
             case 'пурпурний':
 				GetStr[i] = 6;
@@ -244,6 +232,10 @@ function StrToNumber(str) {
 	}
 
 	return Number(GetStr.join(''))
+}
+
+function ParOrNot(num) {
+    return num % 6
 }
 
 var Bull = 0;
@@ -299,27 +291,179 @@ for(let i = 0; i < 4; i++){
     }
 }
 
-ButtonSubmit.on('press', function() {
-    form.submit();
+var countColorgreaterThanEdit = 0;
+var countColorgreaterThanEdit2 = 0;
+var countColorgreaterThanEdit3 = 0;
+var countColorgreaterThanEdit4 = 0;
+
+greaterThanEdit.key(['right', 'Right'], function() {
+    countColorgreaterThanEdit++;
+        if (ParOrNot(countColorgreaterThanEdit) == 0){
+            greaterThanEdit.setValue('Green');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 1){
+            greaterThanEdit.setValue('Blue');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 2){
+            greaterThanEdit.setValue('Red');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 3){
+            greaterThanEdit.setValue('Yellow');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 4){
+            greaterThanEdit.setValue('Cyan');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 5){
+            greaterThanEdit.setValue('Magenta');
+        }
+    screen.render();
 });
 
-cancel.on('press', function() {
-    form.reset();
+greaterThanEdit.key(['left', 'Left'], function() {
+    countColorgreaterThanEdit--;
+        if (ParOrNot(countColorgreaterThanEdit) == 0){
+            greaterThanEdit.setValue('Green');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 1){
+            greaterThanEdit.setValue('Blue');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 2){
+            greaterThanEdit.setValue('Red');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 3){
+            greaterThanEdit.setValue('Yellow');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 4){
+            greaterThanEdit.setValue('Cyan');
+        }else if(ParOrNot(countColorgreaterThanEdit) == 5){
+            greaterThanEdit.setValue('Magenta');
+        }
+    screen.render();
+});
+
+greaterThanEdit2.key(['right', 'Right'], function() {
+    countColorgreaterThanEdit2++;
+        if (ParOrNot(countColorgreaterThanEdit2) == 0){
+            greaterThanEdit2.setValue('Green');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 1){
+            greaterThanEdit2.setValue('Blue');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 2){
+            greaterThanEdit2.setValue('Red');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 3){
+            greaterThanEdit2.setValue('Yellow');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 4){
+            greaterThanEdit2.setValue('Cyan');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 5){
+            greaterThanEdit2.setValue('Magenta');
+        }
+    screen.render();
+});
+
+greaterThanEdit2.key(['left', 'Left'], function() {
+    countColorgreaterThanEdit2--;
+        if (ParOrNot(countColorgreaterThanEdit2) == 0){
+            greaterThanEdit2.setValue('Green');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 1){
+            greaterThanEdit2.setValue('Blue');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 2){
+            greaterThanEdit2.setValue('Red');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 3){
+            greaterThanEdit2.setValue('Yellow');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 4){
+            greaterThanEdit2.setValue('Cyan');
+        }else if(ParOrNot(countColorgreaterThanEdit2) == 5){
+            greaterThanEdit2.setValue('Magenta');
+        }
+    screen.render();
+});
+
+greaterThanEdit3.key(['right', 'Right'], function() {
+    countColorgreaterThanEdit3++;
+        if (ParOrNot(countColorgreaterThanEdit3) == 0){
+            greaterThanEdit3.setValue('Green');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 1){
+            greaterThanEdit3.setValue('Blue');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 2){
+            greaterThanEdit3.setValue('Red');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 3){
+            greaterThanEdit3.setValue('Yellow');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 4){
+            greaterThanEdit3.setValue('Cyan');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 5){
+            greaterThanEdit3.setValue('Magenta');
+        }
+    screen.render();
+});
+
+greaterThanEdit3.key(['left', 'Left'], function() {
+    countColorgreaterThanEdit3--;
+        if (ParOrNot(countColorgreaterThanEdit3) == 0){
+            greaterThanEdit3.setValue('Green');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 1){
+            greaterThanEdit3.setValue('Blue');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 2){
+            greaterThanEdit3.setValue('Red');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 3){
+            greaterThanEdit3.setValue('Yellow');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 4){
+            greaterThanEdit3.setValue('Cyan');
+        }else if(ParOrNot(countColorgreaterThanEdit3) == 5){
+            greaterThanEdit3.setValue('Magenta');
+        }
+    screen.render();
+});
+
+greaterThanEdit4.key(['right', 'Right'], function() {
+    countColorgreaterThanEdit4++;
+        if (ParOrNot(countColorgreaterThanEdit4) == 0){
+            greaterThanEdit4.setValue('Green');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 1){
+            greaterThanEdit4.setValue('Blue');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 2){
+            greaterThanEdit4.setValue('Red');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 3){
+            greaterThanEdit4.setValue('Yellow');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 4){
+            greaterThanEdit4.setValue('Cyan');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 5){
+            greaterThanEdit4.setValue('Magenta');
+        }
+    screen.render();
+});
+
+greaterThanEdit4.key(['left', 'Left'], function() {
+    countColorgreaterThanEdit4--;
+        if (ParOrNot(countColorgreaterThanEdit4) == 0){
+            greaterThanEdit4.setValue('Green');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 1){
+            greaterThanEdit4.setValue('Blue');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 2){
+            greaterThanEdit4.setValue('Red');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 3){
+            greaterThanEdit4.setValue('Yellow');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 4){
+            greaterThanEdit4.setValue('Cyan');
+        }else if(ParOrNot(countColorgreaterThanEdit4) == 5){
+            greaterThanEdit4.setValue('Magenta');
+        }
+    screen.render();
+});
+
+screen.key(['Enter', 'enter'], function() {
+    form.submit();
 });
 
 form.on('submit', function() {
     Bull = 0;
     Cows = 0;
           
-    let getText = Number(StrToNumber(greaterThanEdit.getValue()));
+    let getText = Number(StrToNumber(greaterThanEdit.getValue() + " " + 
+                                     greaterThanEdit2.getValue()+ " " + 
+                                     greaterThanEdit3.getValue()+ " " + 
+                                     greaterThanEdit4.getValue()));
+
     let array = [...'' + getText].map(Number);
 
-    if(isRepeat(getText)){         
+    if(isRepeat(getText)){
         
 
         for(let i = 0; i < 4; i++){
             if(array[i] < 1 || array[i] > 6){
                 greaterThanEdit.setValue('');
+                greaterThanEdit2.setValue('');
+                greaterThanEdit3.setValue('');
+                greaterThanEdit4.setValue('');
                 screen.render();
                 return;
             }
@@ -380,6 +524,9 @@ form.on('submit', function() {
 
         count++;
         greaterThanEdit.setValue('');
+        greaterThanEdit2.setValue('');
+        greaterThanEdit3.setValue('');
+        greaterThanEdit4.setValue('');
 
         if(count > 10){
             CreateEndGame();
@@ -393,11 +540,6 @@ form.on('submit', function() {
     }
 
  return screen.render();
-});
-
-form.on('reset', function(data) {
-    greaterThanEdit.setValue('');
-    screen.render();
 });
 
 screen.key(['escape', 'q', 'C-c', 'й'], function() {
