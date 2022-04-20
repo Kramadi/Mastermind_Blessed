@@ -188,21 +188,21 @@ function CreateWinGame (){
     }
 }
 
-function ViborColor(GetNumber,GreaterThanEdit) {
-    let value = Math.abs(GetNumber) % 6
+function SetColor(color,textBox) {
+    let value = Math.abs(color) % 6
     switch(value) {
         case 0:
-            return GreaterThanEdit.setValue('Green');
+            return textBox.setValue('Green');
         case 1:
-            return GreaterThanEdit.setValue('Blue');
+            return textBox.setValue('Blue');
         case 2:
-            return GreaterThanEdit.setValue('Red');
+            return textBox.setValue('Red');
         case 3:
-            return GreaterThanEdit.setValue('Yellow');
+            return textBox.setValue('Yellow');
         case 4:
-            return GreaterThanEdit.setValue('Cyan');
+            return textBox.setValue('Cyan');
         case 5:
-            return GreaterThanEdit.setValue('Magenta');
+            return textBox.setValue('Magenta');
     }
 
 }
@@ -295,49 +295,50 @@ var countColorgreaterThanEdit4 = 0;
 
 greaterThanEdit.key(['right', 'Right'], function() {
     countColorgreaterThanEdit++;
-    ViborColor(countColorgreaterThanEdit,greaterThanEdit);
+    SetColor(countColorgreaterThanEdit,greaterThanEdit);
+
     screen.render();
 });
 
 greaterThanEdit.key(['left', 'Left'], function() {
     countColorgreaterThanEdit--;
-    ViborColor(countColorgreaterThanEdit,greaterThanEdit);
+    SetColor(countColorgreaterThanEdit,greaterThanEdit);
     screen.render();
 });
 
 greaterThanEdit2.key(['right', 'Right'], function() {
     countColorgreaterThanEdit2++;
-    ViborColor(countColorgreaterThanEdit2,greaterThanEdit2);
+    SetColor(countColorgreaterThanEdit2,greaterThanEdit2);
     screen.render();
 });
 
 greaterThanEdit2.key(['left', 'Left'], function() {
     countColorgreaterThanEdit2--;
-    ViborColor(countColorgreaterThanEdit2,greaterThanEdit2);
+    SetColor(countColorgreaterThanEdit2,greaterThanEdit2);
     screen.render();
 });
 
 greaterThanEdit3.key(['right', 'Right'], function() {
     countColorgreaterThanEdit3++;
-    ViborColor(countColorgreaterThanEdit3,greaterThanEdit3);
+    SetColor(countColorgreaterThanEdit3,greaterThanEdit3);
     screen.render();
 });
 
 greaterThanEdit3.key(['left', 'Left'], function() {
     countColorgreaterThanEdit3--;
-    ViborColor(countColorgreaterThanEdit3,greaterThanEdit3);
+    SetColor(countColorgreaterThanEdit3,greaterThanEdit3);
     screen.render();
 });
 
 greaterThanEdit4.key(['right', 'Right'], function() {
     countColorgreaterThanEdit4++;
-    ViborColor(countColorgreaterThanEdit4,greaterThanEdit4);
+    SetColor(countColorgreaterThanEdit4,greaterThanEdit4);
     screen.render();
 });
 
 greaterThanEdit4.key(['left', 'Left'], function() {
     countColorgreaterThanEdit4--;
-    ViborColor(countColorgreaterThanEdit4,greaterThanEdit4);
+    SetColor(countColorgreaterThanEdit4,greaterThanEdit4);
     screen.render();
 });
 
