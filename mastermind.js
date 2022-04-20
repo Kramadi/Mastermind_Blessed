@@ -6,7 +6,7 @@ const colors = require('colors/safe');
 blessed.form({
     parent: screen,
     top: 'center',
-    left: 100,
+    left: 110,
     align: 'center',
     width: 33,
     height: 14, 
@@ -188,6 +188,31 @@ function CreateWinGame (){
     }
 }
 
+function ViborColor(num,num2) {
+    let value = Math.abs(num) % 6
+    switch(value) {
+        case 0:
+            num2.setValue('Green');
+        break;
+        case 1:
+            num2.setValue('Blue');
+        break;
+        case 2:
+            num2.setValue('Red');
+        break;
+        case 3:
+            num2.setValue('Yellow');
+        break;
+        case 4:
+            num2.setValue('Cyan');
+        break;
+        case 5:
+            num2.setValue('Magenta');
+        break;
+    }
+
+}
+
 function StrToNumber(str) {
 	var GetStr = str.split(" ");
 	for(let i = 0; i < 4; i++){
@@ -232,10 +257,6 @@ function StrToNumber(str) {
 	}
 
 	return Number(GetStr.join(''))
-}
-
-function ParOrNot(num) {
-    return num % 6
 }
 
 var Bull = 0;
@@ -298,145 +319,49 @@ var countColorgreaterThanEdit4 = 0;
 
 greaterThanEdit.key(['right', 'Right'], function() {
     countColorgreaterThanEdit++;
-        if (ParOrNot(countColorgreaterThanEdit) == 0){
-            greaterThanEdit.setValue('Green');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 1){
-            greaterThanEdit.setValue('Blue');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 2){
-            greaterThanEdit.setValue('Red');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 3){
-            greaterThanEdit.setValue('Yellow');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 4){
-            greaterThanEdit.setValue('Cyan');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 5){
-            greaterThanEdit.setValue('Magenta');
-        }
+    ViborColor(countColorgreaterThanEdit,greaterThanEdit);
     screen.render();
 });
 
 greaterThanEdit.key(['left', 'Left'], function() {
     countColorgreaterThanEdit--;
-        if (ParOrNot(countColorgreaterThanEdit) == 0){
-            greaterThanEdit.setValue('Green');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 1){
-            greaterThanEdit.setValue('Blue');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 2){
-            greaterThanEdit.setValue('Red');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 3){
-            greaterThanEdit.setValue('Yellow');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 4){
-            greaterThanEdit.setValue('Cyan');
-        }else if(ParOrNot(countColorgreaterThanEdit) == 5){
-            greaterThanEdit.setValue('Magenta');
-        }
+    ViborColor(countColorgreaterThanEdit,greaterThanEdit);
     screen.render();
 });
 
 greaterThanEdit2.key(['right', 'Right'], function() {
     countColorgreaterThanEdit2++;
-        if (ParOrNot(countColorgreaterThanEdit2) == 0){
-            greaterThanEdit2.setValue('Green');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 1){
-            greaterThanEdit2.setValue('Blue');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 2){
-            greaterThanEdit2.setValue('Red');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 3){
-            greaterThanEdit2.setValue('Yellow');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 4){
-            greaterThanEdit2.setValue('Cyan');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 5){
-            greaterThanEdit2.setValue('Magenta');
-        }
+    ViborColor(countColorgreaterThanEdit2,greaterThanEdit2);
     screen.render();
 });
 
 greaterThanEdit2.key(['left', 'Left'], function() {
     countColorgreaterThanEdit2--;
-        if (ParOrNot(countColorgreaterThanEdit2) == 0){
-            greaterThanEdit2.setValue('Green');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 1){
-            greaterThanEdit2.setValue('Blue');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 2){
-            greaterThanEdit2.setValue('Red');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 3){
-            greaterThanEdit2.setValue('Yellow');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 4){
-            greaterThanEdit2.setValue('Cyan');
-        }else if(ParOrNot(countColorgreaterThanEdit2) == 5){
-            greaterThanEdit2.setValue('Magenta');
-        }
+    ViborColor(countColorgreaterThanEdit2,greaterThanEdit2);
     screen.render();
 });
 
 greaterThanEdit3.key(['right', 'Right'], function() {
     countColorgreaterThanEdit3++;
-        if (ParOrNot(countColorgreaterThanEdit3) == 0){
-            greaterThanEdit3.setValue('Green');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 1){
-            greaterThanEdit3.setValue('Blue');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 2){
-            greaterThanEdit3.setValue('Red');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 3){
-            greaterThanEdit3.setValue('Yellow');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 4){
-            greaterThanEdit3.setValue('Cyan');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 5){
-            greaterThanEdit3.setValue('Magenta');
-        }
+    ViborColor(countColorgreaterThanEdit3,greaterThanEdit3);
     screen.render();
 });
 
 greaterThanEdit3.key(['left', 'Left'], function() {
     countColorgreaterThanEdit3--;
-        if (ParOrNot(countColorgreaterThanEdit3) == 0){
-            greaterThanEdit3.setValue('Green');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 1){
-            greaterThanEdit3.setValue('Blue');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 2){
-            greaterThanEdit3.setValue('Red');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 3){
-            greaterThanEdit3.setValue('Yellow');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 4){
-            greaterThanEdit3.setValue('Cyan');
-        }else if(ParOrNot(countColorgreaterThanEdit3) == 5){
-            greaterThanEdit3.setValue('Magenta');
-        }
+    ViborColor(countColorgreaterThanEdit3,greaterThanEdit3);
     screen.render();
 });
 
 greaterThanEdit4.key(['right', 'Right'], function() {
     countColorgreaterThanEdit4++;
-        if (ParOrNot(countColorgreaterThanEdit4) == 0){
-            greaterThanEdit4.setValue('Green');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 1){
-            greaterThanEdit4.setValue('Blue');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 2){
-            greaterThanEdit4.setValue('Red');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 3){
-            greaterThanEdit4.setValue('Yellow');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 4){
-            greaterThanEdit4.setValue('Cyan');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 5){
-            greaterThanEdit4.setValue('Magenta');
-        }
+    ViborColor(countColorgreaterThanEdit4,greaterThanEdit4);
     screen.render();
 });
 
 greaterThanEdit4.key(['left', 'Left'], function() {
     countColorgreaterThanEdit4--;
-        if (ParOrNot(countColorgreaterThanEdit4) == 0){
-            greaterThanEdit4.setValue('Green');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 1){
-            greaterThanEdit4.setValue('Blue');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 2){
-            greaterThanEdit4.setValue('Red');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 3){
-            greaterThanEdit4.setValue('Yellow');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 4){
-            greaterThanEdit4.setValue('Cyan');
-        }else if(ParOrNot(countColorgreaterThanEdit4) == 5){
-            greaterThanEdit4.setValue('Magenta');
-        }
+    ViborColor(countColorgreaterThanEdit4,greaterThanEdit4);
     screen.render();
 });
 
