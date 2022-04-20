@@ -188,75 +188,51 @@ function CreateWinGame (){
     }
 }
 
-function ViborColor(num,num2) {
-    let value = Math.abs(num) % 6
+function ViborColor(GetNumber,GreaterThanEdit) {
+    let value = Math.abs(GetNumber) % 6
     switch(value) {
         case 0:
-            num2.setValue('Green');
-        break;
+            return GreaterThanEdit.setValue('Green');
         case 1:
-            num2.setValue('Blue');
-        break;
+            return GreaterThanEdit.setValue('Blue');
         case 2:
-            num2.setValue('Red');
-        break;
+            return GreaterThanEdit.setValue('Red');
         case 3:
-            num2.setValue('Yellow');
-        break;
+            return GreaterThanEdit.setValue('Yellow');
         case 4:
-            num2.setValue('Cyan');
-        break;
+            return GreaterThanEdit.setValue('Cyan');
         case 5:
-            num2.setValue('Magenta');
-        break;
+            return GreaterThanEdit.setValue('Magenta');
     }
 
 }
 
 function StrToNumber(str) {
-	var GetStr = str.split(" ");
+	var colorsArray = str.split(" ");
 	for(let i = 0; i < 4; i++){
-		switch(GetStr[i]){
+		switch(colorsArray[i]){
 			case 'Green':
-			case 'green':
-            case 'Зелений':
-            case 'зелений':
-				GetStr[i] = 1;
+				colorsArray[i] = 1;
 				break;
 			case 'Red':
-			case 'red':
-            case 'Червоний':
-            case 'червоний':
-				GetStr[i] = 2;
+				colorsArray[i] = 2;
 				break;
 			case 'Blue':
-			case 'blue':
-            case 'Синій':
-            case 'синій':
-				GetStr[i] = 3;
+				colorsArray[i] = 3;
 				break;
 			case 'Yellow':
-			case 'yellow':
-             case 'Жовтий':
-            case 'жовтий':
-				GetStr[i] = 4;
+				colorsArray[i] = 4;
 				break;
 			case 'Cyan':
-			case 'cyan':
-            case 'Блакитний':
-            case 'блакитний':
-				GetStr[i] = 5;
+				colorsArray[i] = 5;
 				break;
 			case 'Magenta':
-			case 'magenta':
-            case 'Пурпурний':
-            case 'пурпурний':
-				GetStr[i] = 6;
+				colorsArray[i] = 6;
 				break;
 		}
 	}
 
-	return Number(GetStr.join(''))
+	return Number(colorsArray.join(''))
 }
 
 var Bull = 0;
